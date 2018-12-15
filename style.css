@@ -10,14 +10,15 @@ body {
 }
 
 #container {
-    width: 40vw;
+    width: 80vw;
     margin: auto;
-    margin-top: 8rem;
+    margin-top: 5rem;
+    display: flex;
 }
 
 #calculator {
     background: #495057;
-    width: 50%;
+    width: 300px;
     margin: auto;
     border-radius: 5px;
     padding: 1rem;
