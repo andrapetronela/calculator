@@ -103,6 +103,11 @@ body {
 
 .operation {
     background: #868e96;
+    transition: all .3s;
+}
+
+.operation:active {
+    background: hsl(210, 7%, 66%);
 }
 
 
