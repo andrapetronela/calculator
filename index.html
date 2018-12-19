@@ -7,12 +7,31 @@
     <title>Calculator</title>
 </head>
 <body>
-    <div id="root"></div>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+   <div id="container">
+        <div id="calculator">
+                <div id="display"></div>
+                <div id="buttons">
+                    <button id="clear" class="button">AC</button>
+                    <button id="equals" class="button" data-action="equals">=</button>
+                    <button id="zero" class="button" name="0">0</button>
+                    <button name="1" id="one" class="button">1</button>
+                    <button id="two" class="button" name="2">2</button>
+                    <button id="three" class="button" name="3">3</button>
+                    <button id="four" class="button" name="4">4</button>
+                    <button id="five" class="button" name="5">5</button>
+                    <button id="six" class="button" name="6">6</button>
+                    <button id="seven" class="button" name="7">7</button>
+                    <button id="eight" class="button" name="8">8</button>
+                    <button id="nine" class="button" name="9">9</button>
+                    <button id="add" class="button operation" data-action="add">+</button>
+                    <button id="subtract" class="button operation" data-action="subtract">-</button>
+                    <button id="multiply" class="button operation" data-action="multiply">*</button>
+                    <button id="divide" class="button operation" data-action="divide">/</button>
+                    <button id="decimal" class="button" data-action="decimal">.</button>
+                </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
-    <script src="script.js" type="text/babel"></script>
 </body>
 </html>
