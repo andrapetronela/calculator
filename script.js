@@ -9,7 +9,7 @@ calculator.addEventListener('click', ev => {
         const action = key.dataset.action;
         const keyContent = key.textContent;
         const number = display.textContent;
-                
+              
         if (!action) {
             if (number === '0') {
                 display.textContent = keyContent;
@@ -18,30 +18,12 @@ calculator.addEventListener('click', ev => {
             }
         } else if (action === 'decimal') {
             display.textContent = number + '.';
+        } else if (action === 'clear') {
+                display.textContent = '0';
         }
-            if (
-              action === 'add' ||
-              action === 'subtract' ||
-              action === 'multiply' ||
-              action === 'divide'
-            ) {
-              console.log('operator key!')
-            } 
-        if (action === 'decimal') {
-              console.log('decimal key!')
-            }
-            if (action === 'clear') {
-              console.log('clear key!')
-            }
-            if (action === 'equals') {
-              console.log('equal key!')
-            }
     }
 });
 
-clear.addEventListener('click', function() {
-    display.textContent = '0';
-})
 
 
 
