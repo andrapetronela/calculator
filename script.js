@@ -9,10 +9,10 @@ class Calculator extends React.Component {
             first: '',
             second: '',
             lastPressed: '',
-            decimal: false,
+            disable: true,
         }
     this.handleNumber = this.handleNumber.bind(this);
-
+        
     this.clear = this.clear.bind(this);
     }
     
@@ -37,24 +37,46 @@ class Calculator extends React.Component {
                currentNum: eval(expression),
            })    
             
-            this.state.second = this.state.currentNum;
+            const arr = [];
+            arr.push(this.state.currentNum.slice(0,-1));
+            const str = arr.toString();
+            console.log(str);
+            const digit = str.split(' ');
+            console.log(digit);
+            this.state.second = digit[digit.length-1];
+            console.log(this.state.second);
     }
         
-        console.log('second is ' + this.state.second);
+        let isFloat = /([\+\*\-\/]?([0-9]*[.])[0-9]+$)/g;
+        if (isFloat.test(this.state.display) && ev.target.value === '.') {
+         
+            this.setState({
+               disable: false,
+                display: this.state.display,
+                currentNum: this.state.display,
+           })
+        }
+        if (this.state.lastPressed.match(/\./)) {
+           this.setState({
+               disable: false,
+           })
+            
+        } else {
+            this.setState({
+                disable: true,
+            })
+        }
+
+            
         
+                
         if (this.state.display === '0' && ev.target.value === '0') {
             this.setState({
                 display: '0',
             });
             this.state.currentNum = '';
         
-        }
-       const decimal =  document.getElementById('decimal');    
-        if (this.state.lastPressed === '.') {       
-            if (ev.target.value === '.') {
-                console.log('double');
-            }
-        }        
+        }       
 }
     
     clear() {
@@ -62,7 +84,11 @@ class Calculator extends React.Component {
             currentNum: '',
             display: '0',
         })
-    }    
+    }   
+    
+    
+        
+    
       
     render() {
         return (
@@ -90,7 +116,7 @@ class Calculator extends React.Component {
                     <input id="subtract" className="button operation" value=" - " name="operator" onClick={this.handleNumber} />
                     <input id="multiply" className="button operation" value=" * " name="operator" onClick={this.handleNumber}/>
                     <input id="divide" className="button operation" value=" / " name="operator" onClick={this.handleNumber}/>
-                    <input id="decimal" className="button" name="decimal" value="." onClick={this.handleNumber}  />
+                    <input id="decimal" className="button" name="decimal" value="." onClick={this.handleNumber} disabled={!this.state.disable}/>
                 </div>
                 
             </div>
